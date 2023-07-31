@@ -1,1 +1,30 @@
-.button {}
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+}
+
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    height: 60px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    /* background:
+        linear-gradient(180deg, #DB9756 0%, rgba(231, 184, 132, 0.9) 52.08%, rgba(247, 230, 196, 0.76) 100%); */
+    background-color: rgb(171, 122, 219);
+    transition: 0.2s ease-in-out;
+}
+
+.Button:hover,
+.Button:active {
+    background-color: rgb(113, 4, 223);
+
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { library } from "@fortawesome/fontawesome-svg-core";
+// import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBalanceScale,
   faCar,
@@ -7,13 +7,29 @@ import {
   faBaby,
   fa0,
   faRandom,
+  fa2,
+  faDog,
+  faPlane,
+  faClock,
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import * as icons from "@fortawesome/free-solid-svg-icons";
+// import * as icons from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "./IconButton.module.css";
 
 // library.add(fas, fa0, faCar, faTrain, faBalanceScale, faBaby);
-const fontIcons = [faBalanceScale, faCar, faTrain, faBaby, fa0];
+const fontIcons = [
+  faBalanceScale,
+  faCar,
+  faTrain,
+  faBaby,
+  fa0,
+  fa2,
+  faDog,
+  faPlane,
+  faClock,
+  faCircle,
+];
 console.log(fontIcons.length);
 
 // console.log(icons);
@@ -37,9 +53,9 @@ export const IcontButton = () => {
   };
 
   return (
-    <div>
-      <FontAwesomeIcon icon={fontIcon} color="white" />
-      <button className={classes.button} onClick={generateIconHandler}>
+    <div className={classes.contentWrapper}>
+      <FontAwesomeIcon icon={fontIcon} color="wheat" fontSize="40px" />
+      <button className={classes.Button} onClick={generateIconHandler}>
         Generate <FontAwesomeIcon icon={fontIcon} />
       </button>
     </div>
