@@ -1,7 +1,11 @@
-import classes from "./App.module.css";
+import { RouteComponents } from "./Routes";
 
 function App() {
-  <div></div>;
+  return (
+    <div>
+      <RouteComponents />
+    </div>
+  );
 }
 
 export default App;
