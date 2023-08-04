@@ -3,5 +3,13 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    gap: 200px;
 
+}
+
+.buttonconts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
