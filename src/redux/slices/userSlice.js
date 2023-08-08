@@ -17,12 +17,24 @@ export const authenticatedUser = createAsyncThunk(
   }
 );
 
-const userSlice = createSlice({
+export const fetchUsersData = createAsyncThunk(
+  "./user/fetchUsersData",
+  async () => {
+    try {
+      const { data } = await axiosInstance.get("/usersListRoute");
+      console.log(data);
+      return data;
+    } catch (error) {}
+  }
+);
+
+export const userSlice = createSlice({
   name: "user",
   initialState: {
     loading: false,
     error: null,
     userInfo: null,
+    users: [],
   },
   reducers: {
     logoutUser: (state) => {
@@ -43,8 +55,19 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     });
+    builder.addCase(fetchUsersData.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchUsersData.fulfilled, (state, action) => {
+      state.loading = false;
+      state.users = action.payload;
+    });
+    builder.addCase(fetchUsersData.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
   },
 });
 
 export const userReducer = userSlice.reducer;
-export const { logoutUser } = userSlice.reducer;
+export const { logoutUser } = userSlice.actions;

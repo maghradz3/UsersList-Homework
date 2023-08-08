@@ -1,13 +1,14 @@
 import React from "react";
+
 import { useForm } from "../../hooks";
-import { generateRegisterFormValues } from "./generateRegisterForm";
+import { generateRegisterFormValues } from "./GenetareLoginFormValues";
 import { Button } from "../../atoms";
 import { Input } from "../../atoms";
 import { useDispatch } from "react-redux";
 import { authenticatedUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router";
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const {
     formValues: registerFormValues,
 
@@ -17,14 +18,12 @@ export const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmitHandler = () => {
-    const firstName = registerFormValues.firstName.value;
-    const lastName = registerFormValues.lastName.value;
     const email = registerFormValues.email.value;
     const password = registerFormValues.password.value;
     dispatch(
       authenticatedUser({
-        formValues: { firstName, lastName, email, password },
-        isLogin: false,
+        formValues: { email, password },
+        isLogin: true,
       })
     )
       .unwrap()
@@ -44,20 +43,6 @@ export const RegisterForm = () => {
         padding: "150px",
       }}
     >
-      <Input
-        name="firstName"
-        label="firstName"
-        value={registerFormValues.firstName.value}
-        error={registerFormValues.firstName.error}
-        onChange={onFormChange}
-      />
-      <Input
-        name="lastName"
-        label="lastName"
-        value={registerFormValues.lastName.value}
-        error={registerFormValues.lastName.error}
-        onChange={onFormChange}
-      />
       <Input
         name="email"
         label="email"
