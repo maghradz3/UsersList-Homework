@@ -21,8 +21,7 @@ export const fetchUsersData = createAsyncThunk(
   "user/fetchUsersData",
   async () => {
     try {
-      const { data } = await axiosInstance.get(`/users/userList`);
-      console.log(data);
+      const { data } = await axiosInstance.get(`/users/userList/users`);
 
       return data;
     } catch (error) {}
@@ -75,7 +74,7 @@ export const userSlice = createSlice({
     });
     builder.addCase(fetchUsersData.fulfilled, (state, action) => {
       state.loading = false;
-      state.users = action.payload;
+      state.users = action.payload.users;
     });
     builder.addCase(fetchUsersData.rejected, (state, action) => {
       state.loading = false;

@@ -6,7 +6,6 @@ import { UsersList } from "../components/usersList";
 export const HomePage = () => {
   return (
     <div>
-      <Header />
       <Home />
       <UsersList />
     </div>

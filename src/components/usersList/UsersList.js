@@ -4,6 +4,7 @@ import { UsersListItem } from "./UsersListItem";
 
 export const UsersList = () => {
   const { users } = useUser();
+
   console.log(users);
   return (
     <div
