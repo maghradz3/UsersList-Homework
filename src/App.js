@@ -5,12 +5,6 @@ import { fetchUsersData } from "./redux/slices/userSlice";
 import { Header } from "./components/header";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUsersData());
-  }, []);
-
   return (
     <div>
       <Header />

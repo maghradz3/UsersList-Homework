@@ -11,7 +11,7 @@ export const Header = () => {
     <Box
       sx={{ display: "flex", justifyContent: "space-between", padding: "20px" }}
     >
-      <h1>Logo</h1>
+      <h1>Users List</h1>
       <UserIcon />
     </Box>
   );

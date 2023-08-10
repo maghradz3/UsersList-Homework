@@ -1,0 +1,48 @@
+.mainCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.mainCont Button {
+    padding: 15px 30px;
+    transition: 0.3s ease-in-out;
+}
+
+.mainCont Button:nth-child(1) {
+    border: 2px solid rgb(250, 75, 75);
+    color: rgb(248, 47, 47)
+}
+
+.mainCont Button:nth-child(2) {
+    border: 2px solid rgb(33, 138, 24);
+    color: rgb(8, 194, 48)
+}
+
+.mainCont Button:nth-child(3) {
+    border: 2px solid rgb(255, 138, 4);
+    color: rgb(233, 146, 15)
+}
+
+.mainCont Button:nth-child(1):hover {
+    /* border: 2px solid rgb(250, 75, 75); */
+    background-color: rgb(250, 75, 75);
+    color: wheat;
+    transform: scaleX(1.1);
+}
+
+.mainCont Button:nth-child(2):hover {
+    /* border: 2px solid rgb(250, 75, 75); */
+    background-color: rgb(41, 114, 34);
+    color: wheat;
+    transform: scaleX(1.1);
+}
+
+.mainCont Button:nth-child(3):hover {
+    /* border: 2px solid rgb(250, 75, 75); */
+    background-color: rgb(255, 138, 4);
+    color: wheat;
+    transform: scaleX(1.1);
+}

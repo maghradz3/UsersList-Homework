@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "../../hooks";
 import { generateRegisterFormValues } from "./generateRegisterForm";
 import { Button } from "../../atoms";
@@ -6,6 +6,7 @@ import { Input } from "../../atoms";
 import { useDispatch } from "react-redux";
 import { authenticatedUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router";
+import { Alert } from "@mui/material";
 
 export const RegisterForm = () => {
   const {
@@ -15,6 +16,7 @@ export const RegisterForm = () => {
   } = useForm(generateRegisterFormValues());
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState(false);
 
   const onSubmitHandler = () => {
     const firstName = registerFormValues.firstName.value;
@@ -31,6 +33,7 @@ export const RegisterForm = () => {
       .then(() => navigate("/"))
       .catch((error) => {
         console.error(error);
+        setError(true);
       });
   };
 
@@ -73,6 +76,11 @@ export const RegisterForm = () => {
         onChange={onFormChange}
       />
       <Button onClick={onSubmitHandler}>Sign Up</Button>
+      {error && (
+        <Alert severity="error">
+          You cant Register with this email, You are Blocked !
+        </Alert>
+      )}
     </form>
   );
 };

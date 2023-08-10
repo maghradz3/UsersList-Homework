@@ -1,0 +1,23 @@
+.mainCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    padding: 20px 50px;
+
+
+}
+
+.cardsCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    width: 100%;
+    /* border: 2px solid red; */
+    /* border: 2px solid red; */
+}

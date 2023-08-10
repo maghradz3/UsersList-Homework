@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 * {
   box-sizing: border-box;
 }
@@ -5,5 +9,9 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
 
+  background-color: #fdf6e3;
 }

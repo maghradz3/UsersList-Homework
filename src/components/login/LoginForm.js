@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useForm } from "../../hooks";
 import { generateRegisterFormValues } from "./GenetareLoginFormValues";
@@ -7,8 +7,10 @@ import { Input } from "../../atoms";
 import { useDispatch } from "react-redux";
 import { authenticatedUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router";
+import { Alert } from "@mui/material";
 
 export const LoginForm = () => {
+  const [error, setError] = useState(false);
   const {
     formValues: registerFormValues,
 
@@ -29,7 +31,8 @@ export const LoginForm = () => {
       .unwrap()
       .then(() => navigate("/"))
       .catch((error) => {
-        console.error(error);
+        console.error(error, "You are Blocked!");
+        setError(true);
       });
   };
 
@@ -58,6 +61,7 @@ export const LoginForm = () => {
         onChange={onFormChange}
       />
       <Button onClick={onSubmitHandler}>Sign Up</Button>
+      {error && <Alert severity="error">You are Blocked!</Alert>}
     </form>
   );
 };

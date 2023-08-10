@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosInstance } from "../../helpers";
+
 export const authenticatedUser = createAsyncThunk(
   "user/authenticatedUser",
   async ({ formValues, isLogin }, { rejectWithValue }) => {
@@ -34,6 +35,33 @@ export const deleteUserData = createAsyncThunk(
     try {
       const { data } = await axiosInstance.delete(`/users/userList/${userId}`);
       console.log(data);
+      dispatch(fetchUsersData());
+      return data;
+    } catch (error) {
+      return rejectWithValue("something went wrong");
+    }
+  }
+);
+
+export const blockUserData = createAsyncThunk(
+  "user/blockUserHandler",
+  async (userId, { rejectWithValue, dispatch }) => {
+    try {
+      const { data } = await axiosInstance.put(`users/blockUser/${userId}`);
+
+      dispatch(fetchUsersData());
+      return data;
+    } catch (error) {
+      return rejectWithValue("something went wrong");
+    }
+  }
+);
+export const unBlockUserData = createAsyncThunk(
+  "user/unblockUserHandler",
+  async (userId, { rejectWithValue, dispatch }) => {
+    try {
+      const { data } = await axiosInstance.put(`users/unBlockUser/${userId}`);
+
       dispatch(fetchUsersData());
       return data;
     } catch (error) {
