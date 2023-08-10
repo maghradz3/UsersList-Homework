@@ -18,13 +18,28 @@ export const authenticatedUser = createAsyncThunk(
 );
 
 export const fetchUsersData = createAsyncThunk(
-  "./user/fetchUsersData",
+  "user/fetchUsersData",
   async () => {
     try {
-      const { data } = await axiosInstance.get("/usersListRoute");
+      const { data } = await axiosInstance.get(`/users/userList`);
       console.log(data);
+
       return data;
     } catch (error) {}
+  }
+);
+
+export const deleteUserData = createAsyncThunk(
+  "user/deleteUserData",
+  async (userId, { dispatch, rejectWithValue }) => {
+    try {
+      const { data } = await axiosInstance.delete(`/users/userList/${userId}`);
+      console.log(data);
+      dispatch(fetchUsersData());
+      return data;
+    } catch (error) {
+      return rejectWithValue("something went wrong");
+    }
   }
 );
 
@@ -65,6 +80,13 @@ export const userSlice = createSlice({
     builder.addCase(fetchUsersData.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
+    });
+    builder.addCase(deleteUserData.fulfilled, (state, action) => {
+      state.loading = false;
+    });
+    builder.addCase(deleteUserData.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload ? action.payload : action.error.message;
     });
   },
 });

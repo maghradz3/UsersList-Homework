@@ -1,1 +1,1 @@
-export { userReducer, logoutUser } from "./userSlice";
+export { userReducer, logoutUser, deleteUserData } from "./userSlice";
