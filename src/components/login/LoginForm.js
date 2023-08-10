@@ -43,7 +43,9 @@ export const LoginForm = () => {
         justifyContent: "center",
         flexDirection: "column",
         gap: "20px",
-        padding: "150px",
+        padding: "150px 100px",
+        width: "70%",
+        margin: "0 auto",
       }}
     >
       <Input
@@ -61,7 +63,7 @@ export const LoginForm = () => {
         onChange={onFormChange}
       />
       <Button onClick={onSubmitHandler}>Sign Up</Button>
-      {error && <Alert severity="error">You are Blocked!</Alert>}
+      {error && <Alert severity="error">Something went wrong!</Alert>}
     </form>
   );
 };

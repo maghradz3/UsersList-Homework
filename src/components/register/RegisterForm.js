@@ -45,6 +45,8 @@ export const RegisterForm = () => {
         flexDirection: "column",
         gap: "20px",
         padding: "150px",
+        width: "70%",
+        margin: "0 auto",
       }}
     >
       <Input
@@ -76,11 +78,7 @@ export const RegisterForm = () => {
         onChange={onFormChange}
       />
       <Button onClick={onSubmitHandler}>Sign Up</Button>
-      {error && (
-        <Alert severity="error">
-          You cant Register with this email, You are Blocked !
-        </Alert>
-      )}
+      {error && <Alert severity="error">Something went wrong!</Alert>}
     </form>
   );
 };

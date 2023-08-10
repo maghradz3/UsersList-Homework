@@ -22,9 +22,7 @@ export const UserIcon = () => {
   return (
     <Box>
       <IconButton onClick={(e) => setAnchor(e.currentTarget)}>
-        <Avatar sx={{ border: "2px solid red" }}>
-          {getUserInitials(userInfo)}
-        </Avatar>
+        <Avatar>{getUserInitials(userInfo)}</Avatar>
       </IconButton>
       <Menu
         anchorEl={anchor}
@@ -49,7 +47,7 @@ export const UserIcon = () => {
               <Button
                 onClick={() => {
                   dispatch(logoutUser());
-                  navigate("/register");
+                  navigate("/");
                 }}
               >
                 Log Out

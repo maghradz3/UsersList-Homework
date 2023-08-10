@@ -1,10 +1,11 @@
 import { Checkbox } from "@mui/material";
 import React, { useState } from "react";
-import { Button } from "../../atoms";
+
 import { useDispatch } from "react-redux";
-import { deleteUserData } from "../../redux/slices";
+
 import { useUser } from "../../hooks/useUser";
 import classes from "./UsersListItem.module.css";
+import { Tilt } from "react-tilt";
 
 export const UsersListItem = ({ user, onCheckboxChange, isChecked }) => {
   const { userInfo } = useUser();
@@ -17,9 +18,20 @@ export const UsersListItem = ({ user, onCheckboxChange, isChecked }) => {
   };
 
   const dispatch = useDispatch();
+  const defaultOptions = {
+    reverse: false,
+    max: 20,
+    perspective: 1000,
+    scale: 1.05,
+    speed: 700,
+    transition: true,
+    axis: null,
+    reset: true,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+  };
 
   return (
-    <div className={classes.mainCont}>
+    <Tilt className={classes.mainCont} options={defaultOptions}>
       <div style={{ display: "flex", gap: "10px" }}>
         <h1>{user.firstName}</h1>
         <h1>{user.lastName}</h1>
@@ -45,6 +57,6 @@ export const UsersListItem = ({ user, onCheckboxChange, isChecked }) => {
       )}
 
       <Checkbox checked={checked} onChange={handleChecked} />
-    </div>
+    </Tilt>
   );
 };

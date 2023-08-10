@@ -30,7 +30,7 @@ export const generateRegisterFormValues = () => {
       required: true,
       error: "",
       validateInput: (password) =>
-        password.length > 1
+        password.length >= 1
           ? null
           : " password should have at least 1 character",
     },

@@ -21,7 +21,7 @@ export const Toolbar = ({ selectedUsers }) => {
     selectedUsers.forEach((userId) => dispatch(blockUserData(userId)));
     if (selectedUsers.includes(userInfo?._id)) {
       dispatch(logoutUser());
-      navigate("./register");
+      navigate("./login");
     }
   };
 
@@ -33,7 +33,7 @@ export const Toolbar = ({ selectedUsers }) => {
     selectedUsers.forEach((userId) => dispatch(deleteUserData(userId)));
     if (selectedUsers.includes(userInfo?._id)) {
       dispatch(logoutUser());
-      navigate("./register");
+      navigate("./login");
     }
   };
 
