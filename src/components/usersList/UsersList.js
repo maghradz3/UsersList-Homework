@@ -27,7 +27,7 @@ export const UsersList = () => {
       setSelectedUsers(selectedUsers.filter((id) => id !== userId));
     }
   };
-  console.log(selectedUsers);
+
   return (
     <div className={classes.mainCont}>
       <Toolbar selectedUsers={selectedUsers} />

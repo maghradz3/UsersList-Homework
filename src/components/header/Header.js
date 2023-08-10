@@ -1,8 +1,5 @@
 import React from "react";
-import { Button } from "../../atoms";
-import { useDispatch } from "react-redux";
-import { logoutUser } from "../../redux/slices";
-import { useNavigate } from "react-router";
+
 import { UserIcon } from "./UserIcon";
 import { Box } from "@mui/material";
 

@@ -9,7 +9,7 @@ import {
 import { Button } from "../../atoms";
 import { useUser } from "../../hooks/useUser";
 import { useNavigate } from "react-router";
-import { Box, styled } from "@mui/material";
+import { Box } from "@mui/material";
 import classes from "./Toolbar.module.css";
 
 export const Toolbar = ({ selectedUsers }) => {
