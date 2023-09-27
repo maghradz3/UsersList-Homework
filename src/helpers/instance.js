@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const backendUrl = process.env.REACT_APP_BA;
+
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: backendUrl,
 });
 
 axiosInstance.interceptors.request.use((req) => {
@@ -23,7 +25,7 @@ axiosInstance.interceptors.response.use(
     ) {
       const refreshToken = localStorage.getItem("refreshToken");
       axios
-        .post("http://localhost:5000/users/refresh", {
+        .post("https://userlist-backend.onrender.com/users/refresh", {
           refresh_token: refreshToken,
         })
         .then(({ data }) => {

@@ -4,4 +4,5 @@ export {
   deleteUserData,
   blockUserData,
   unBlockUserData,
+  makeUserAdmin,
 } from "./userSlice";

@@ -5,6 +5,7 @@ import {
   unBlockUserData,
   deleteUserData,
   logoutUser,
+  makeUserAdmin,
 } from "../../redux/slices";
 import { Button } from "../../atoms";
 import { useUser } from "../../hooks/useUser";
@@ -37,11 +38,16 @@ export const Toolbar = ({ selectedUsers }) => {
     }
   };
 
+  const makeUserAdminHandler = () => {
+    selectedUsers.forEach((userId) => dispatch(makeUserAdmin(userId)));
+  };
+
   return (
     <Box className={classes.mainCont}>
       <Button onClick={blockUsersHandler}>Block</Button>
       <Button onClick={unblockUsersHandler}>Unblock</Button>
       <Button onClick={deleteUsersHandler}>Delete</Button>
+      <Button onClick={makeUserAdminHandler}>Make Admin</Button>
     </Box>
   );
 };

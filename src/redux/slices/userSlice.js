@@ -70,6 +70,20 @@ export const unBlockUserData = createAsyncThunk(
   }
 );
 
+export const makeUserAdmin = createAsyncThunk(
+  "user/makeUserAdmin",
+  async (userId, { rejectWithValue, dispatch }) => {
+    try {
+      const { data } = await axiosInstance.put(`users/makeAdmin/${userId}`);
+
+      dispatch(fetchUsersData());
+      return data;
+    } catch (error) {
+      return rejectWithValue("something went wrong");
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -113,7 +127,12 @@ export const userSlice = createSlice({
     });
     builder.addCase(deleteUserData.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload ? action.payload : action.error.message;
+    });
+    builder.addCase(makeUserAdmin.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(makeUserAdmin.fulfilled, (state, action) => {
+      state.loading = false;
     });
   },
 });
